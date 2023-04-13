@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        *{
+    padding : 0 ;
+    margin : 0 ;
+    box-sizing : border-box ;
+    font-family: 'Montserrat', sans-serif ;
+    transition: all 0.3s ease 0s ;
+    font-weight: bold ;
+    color: rgb(117,117,117) ;
+}
+
+body{
+    height: 100vh ;
+    display : flex ;
+    align-items: center ;
+    justify-content: center ;
+    background-color: rgb(240,240,240);
+}
+
+.container{
+    width: 400px ;
+    height: 45% ;
+    background-color: #ffffff ;
+    border-top-right-radius: 12px ;
+    border-top-left-radius: 12px ;
+    border-bottom-left-radius: 12px ;
+    border-bottom-right-radius: 90px ;
+    overflow: hidden ;
+}
+
+.lbldiv{
+    display: flex ;
+    justify-content:left;
+    margin-left: 2rem ;
+    height: 5% ;
+    align-items: center ;
+    padding-top: 1rem ;
+}
+
+.lbl{
+    margin-right: 5rem ;
+    font-size: 0.8rem ;
+}
+
+.inputdiv{
+    display: flex ;
+    margin-left: 2rem ;
+    height: 5% ;
+    align-items: center ;
+    padding-top: 0.3rem ;
+}
+
+.input-field{
+    margin-right: 2.4rem ;
+    width: 4rem ;
+    height: 1.8rem;
+    font-weight: bold ;
+    padding: 4px ;
+}
+
+.input-field1{
+    height: 1.8rem;
+    width: 4rem ;
+    margin-right: 3.4rem ;
+    font-weight: bold ;
+    padding: 4px ;
+}
+
+.input-field:focus{
+    outline : none ;
+}
+.input-field1:focus{
+    outline : none ;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.test{
+    display: flex ;
+    margin-left: 2rem ;
+    width: 90% ;
+    
+}
+
+.subdiv{
+    padding-top : 1.5rem ;
+    display: flex ;
+    width : 80% ;
+}
+
+.line{
+    width: 100% ;
+    height: 0px ;
+    margin-right: 2px ;
+    background-color: black ;
+}
+
+.btn{
+    height: 50px ;
+    width: 50px ;
+    border-radius: 100% ;
+    border: none ;
+    color: white ;
+    font-size: 2rem ;
+    background-color: rgb(135,74,255) ;
+    cursor: pointer ;
+}
+
+.btn:hover{
+    background-color: white ;
+    color : rgb(135,74,255) ;
+    box-shadow: 1px 1px 5px rgba(0,0,0,40%);
+}
+
+.btn:active{
+    height: 51px ;
+    width: 51px ;
+}
+
+.resultdiv{
+    margin-left: 2rem ; 
+}
+
+.resultdiv p{
+    display: inline;
+    margin-right: 3px ;
+    font-size: 50px ;
+    font-style: italic ;
+}
+
+.text{
+    color: black ;
+}
+
+#ed1, #ed2, #ed3{
+    color : rgb(135,74,255) ;
+}
+
+@media screen and(max-width : 400px ){
+    .container{
+        width: 100% ;
+    }
+
+    .lbldiv,.inputdiv,.test,.resultdiv{
+        margin-left: 0px ;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form" onsubmit="return false;">
+            <div class="lbldiv">
+                <label for="" class="lbl">Day</label>
+                <label for="" class="lbl">Month</label>
+                <label for="" class="lbl">Year</label>
+            </div>
+            <div class="inputdiv">
+                <input type="number" min="1" max="31" class="input-field" placeholder="DD" id="in1" required>
+                <input type="number" min="1" max="12" class="input-field1" placeholder="MM" id="in2" required>
+                <input type="number" min="1980" max="2022" class="input-field" placeholder="YYYY" id="in3" required>
+            </div>
+            <div class="test">
+                <div class="subdiv">
+                    <hr class="line">
+                </div>
+    
+                <div>
+                    <button class="btn" id="btn">&DownArrowBar;</button>
+                </div>
+            </div>
+        </form>
+        
+        <div class="resultdiv">
+            <p id="ed1">--</p> <p class="text">Years</p> <br>
+            <p id="ed2">--</p> <p class="text">Months</p> <br>
+            <p id="ed3">--</p> <p class="text">Days</p>
+        </div>
+    </div>
+<script>
+    var btn = document.getElementById("btn") ;
+
+function calc(){
+    var day = parseInt(document.getElementById("in1").value) ;
+    var month = parseInt(document.getElementById("in2").value) ;
+    var year = parseInt(document.getElementById("in3").value) ;
+
+    var fyear = document.getElementById("ed1") ;
+    var fmonth = document.getElementById("ed2") ;
+    var fday = document.getElementById("ed3") ;
+
+    var standard = new Date() ;
+    var currentYear = standard.getFullYear();
+    var currentMonth = standard.getMonth() + 1;
+    var currentDate = standard.getDate();
+
+    if(isNaN(currentMonth - month) || day>31 || isNaN(currentYear - year) || isNaN(currentDate - day)){
+        fday.innerText = "--" ;
+        fmonth.innerText = "--" ;
+        fyear.innerText = "--" ;
+    }else if(currentDate<day){
+        currentDate = currentDate + 31 ;
+        currentMonth = currentMonth - 1 ;
+        fday.innerText =  currentDate - day ;
+    }
+    else{
+        fday.innerText =  currentDate - day ;
+    }
+
+    
+    if(isNaN(currentMonth - month) || month>12 || isNaN(currentYear - year) || isNaN(currentDate - day)){
+        fday.innerText = "--" ;
+        fmonth.innerText = "--" ;
+        fyear.innerText = "--" ;
+    }else if(currentMonth<month){
+        currentMonth = currentMonth + 12 ;
+        currentYear = currentYear - 1 ;
+        fmonth.innerText = currentMonth - month ;
+    }else{
+        fmonth.innerText = currentMonth - month ;
+    }
+        
+    if(isNaN(currentMonth - month) || isNaN(currentYear - year) || isNaN(currentDate - day) || year>2023 || year<1980){
+        fday.innerText = "--" ;
+        fmonth.innerText = "--" ;
+        fyear.innerText = "--" ;
+    }else{
+        fyear.innerText = currentYear - year ;
+    }
+
+}
+
+btn.addEventListener("click", calc) 
+
+
+
+
+
+</script> 
+</body>
+</html>
