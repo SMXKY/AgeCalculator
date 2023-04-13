@@ -1,0 +1,151 @@
+*{
+    padding : 0 ;
+    margin : 0 ;
+    box-sizing : border-box ;
+    font-family: 'Montserrat', sans-serif ;
+    transition: all 0.3s ease 0s ;
+    font-weight: bold ;
+    color: rgb(117,117,117) ;
+}
+
+body{
+    height: 100vh ;
+    display : flex ;
+    align-items: center ;
+    justify-content: center ;
+    background-color: rgb(240,240,240);
+}
+
+.container{
+    width: 400px ;
+    height: 45% ;
+    background-color: #ffffff ;
+    border-top-right-radius: 12px ;
+    border-top-left-radius: 12px ;
+    border-bottom-left-radius: 12px ;
+    border-bottom-right-radius: 90px ;
+    overflow: hidden ;
+}
+
+.lbldiv{
+    display: flex ;
+    justify-content:left;
+    margin-left: 2rem ;
+    height: 5% ;
+    align-items: center ;
+    padding-top: 1rem ;
+}
+
+.lbl{
+    margin-right: 5rem ;
+    font-size: 0.8rem ;
+}
+
+.inputdiv{
+    display: flex ;
+    margin-left: 2rem ;
+    height: 5% ;
+    align-items: center ;
+    padding-top: 0.3rem ;
+}
+
+.input-field{
+    margin-right: 2.4rem ;
+    width: 4rem ;
+    height: 1.8rem;
+    font-weight: bold ;
+    padding: 4px ;
+}
+
+.input-field1{
+    height: 1.8rem;
+    width: 4rem ;
+    margin-right: 3.4rem ;
+    font-weight: bold ;
+    padding: 4px ;
+}
+
+.input-field:focus{
+    outline : none ;
+}
+.input-field1:focus{
+    outline : none ;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.test{
+    display: flex ;
+    margin-left: 2rem ;
+    width: 90% ;
+    
+}
+
+.subdiv{
+    padding-top : 1.5rem ;
+    display: flex ;
+    width : 80% ;
+}
+
+.line{
+    width: 100% ;
+    height: 0px ;
+    margin-right: 2px ;
+    background-color: black ;
+}
+
+.btn{
+    height: 50px ;
+    width: 50px ;
+    border-radius: 100% ;
+    border: none ;
+    color: white ;
+    font-size: 2rem ;
+    background-color: rgb(135,74,255) ;
+    cursor: pointer ;
+}
+
+.btn:hover{
+    background-color: white ;
+    color : rgb(135,74,255) ;
+    box-shadow: 1px 1px 5px rgba(0,0,0,40%);
+}
+
+.btn:active{
+    height: 51px ;
+    width: 51px ;
+}
+
+.resultdiv{
+    margin-left: 2rem ; 
+}
+
+.resultdiv p{
+    display: inline;
+    margin-right: 3px ;
+    font-size: 50px ;
+    font-style: italic ;
+}
+
+.text{
+    color: black ;
+}
+
+#ed1, #ed2, #ed3{
+    color : rgb(135,74,255) ;
+}
+
+@media screen and(max-width : 400px ){
+    .container{
+        width: 100% ;
+    }
+
+    .lbldiv,.inputdiv,.test,.resultdiv{
+        margin-left: 0px ;
+    }
+}
+

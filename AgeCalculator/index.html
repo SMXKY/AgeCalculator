@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form class="form" onsubmit="return false;">
+            <div class="lbldiv">
+                <label for="" class="lbl">Day</label>
+                <label for="" class="lbl">Month</label>
+                <label for="" class="lbl">Year</label>
+            </div>
+            <div class="inputdiv">
+                <input type="number" min="1" max="31" class="input-field" placeholder="DD" id="in1" required>
+                <input type="number" min="1" max="12" class="input-field1" placeholder="MM" id="in2" required>
+                <input type="number" min="1980" max="2022" class="input-field" placeholder="YYYY" id="in3" required>
+            </div>
+            <div class="test">
+                <div class="subdiv">
+                    <hr class="line">
+                </div>
+    
+                <div>
+                    <button class="btn" id="btn">&DownArrowBar;</button>
+                </div>
+            </div>
+        </form>
+        
+        <div class="resultdiv">
+            <p id="ed1">--</p> <p class="text">Years</p> <br>
+            <p id="ed2">--</p> <p class="text">Months</p> <br>
+            <p id="ed3">--</p> <p class="text">Days</p>
+        </div>
+    </div>
+<script src="index.js"></script> 
+</body>
+</html>
